@@ -49,25 +49,13 @@ const FAQ = [
 ];
 
 /* =========================================================
-   ГОРОДА (Мюльхайм +35 км). Город определяется по IP, можно задать в ссылке: ?city=essen
+   ГОРОДА. Город определяется по IP, можно задать в ссылке: ?city=essen
    ========================================================= */
 const CITIES = {
-  muelheim:      "Mülheim an der Ruhr",
-  essen:         "Essen",
-  duisburg:      "Duisburg",
-  oberhausen:    "Oberhausen",
-  duesseldorf:   "Düsseldorf",
-  bottrop:       "Bottrop",
-  gelsenkirchen: "Gelsenkirchen",
-  bochum:        "Bochum",
-  ratingen:      "Ratingen",
-  moers:         "Moers",
-  dinslaken:     "Dinslaken",
-  gladbeck:      "Gladbeck",
-  velbert:       "Velbert",
-  krefeld:       "Krefeld",
-  herne:         "Herne",
-  neuss:         "Neuss",
+  muelheim:   "Mülheim an der Ruhr",
+  essen:      "Essen",
+  duisburg:   "Duisburg",
+  oberhausen: "Oberhausen",
 };
 
 const params = new URLSearchParams(location.search);
@@ -146,9 +134,9 @@ function renderCity() {
   const name = CITIES[city];
   const short = city === "muelheim" ? "Mülheim" : name;
 
-  $("heroBadge").textContent = name ? `${name} & Umgebung · Reinigung direkt bei Ihnen` : "Mülheim an der Ruhr & Umgebung (+35 km)";
-  $("heroTitle").innerHTML = `Professionelle Polster- und Teppichreinigung <span class="hl">in ${name ? short : "Mülheim & Umgebung"}</span>`;
-  $("contactArea").textContent = name ? `${name} und Umgebung` : "Mülheim an der Ruhr und Umgebung (+35 km)";
+  $("heroBadge").textContent = name ? `${name} & Umgebung · Reinigung direkt bei Ihnen` : "Mülheim an der Ruhr & Umgebung";
+  $("heroTitle").innerHTML = `Polster- und Teppichreinigung <span class="hl">in ${name ? short : "Mülheim & Umgebung"}</span>`;
+  $("contactArea").textContent = name ? `${name} und Umgebung` : "Mülheim an der Ruhr und Umgebung";
   $("areaChips").innerHTML = Object.entries(CITIES)
     .map(([key, n]) => `<li${key === city ? ' class="chip--alt"' : ""}>${n}</li>`).join("");
 
@@ -268,5 +256,5 @@ renderPrices();
 renderReviews();
 renderFaq();
 renderFormOptions();
-renderCity(); // сразу показываем Мюльхайм +35 км, потом уточняем по IP
+renderCity(); // сразу показываем Мюльхайм, потом уточняем по IP
 detectCity().then((c) => { city = c; renderCity(); });
