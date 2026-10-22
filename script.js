@@ -140,7 +140,7 @@ function renderCity() {
   $("areaChips").innerHTML = Object.entries(CITIES)
     .map(([key, n]) => `<li${key === city ? ' class="chip--alt"' : ""}>${n}</li>`).join("");
 
-  document.title = `Polsterreinigung ${name ? short : "Mülheim & Umgebung"} | Nazar Iarovyi`;
+  document.title = `Polsterreinigung ${name ? short : "Mülheim & Umgebung"} | Reinigungsservice`;
 }
 
 /* =========================================================
